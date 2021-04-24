@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-ERP_DVJ-4964977E-BF74-45AE-9903-DDED36643BC7</UserSecretsId>
-    <RootNamespace>ERP_DVJ</RootNamespace>
+    <UserSecretsId>aspnet-ERP_JE-07B51F80-F9C5-45B1-A850-64C69C7C743B</UserSecretsId>
+    <RootNamespace>ERP_JE</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

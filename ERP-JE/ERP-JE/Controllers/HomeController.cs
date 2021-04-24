@@ -1,4 +1,4 @@
-﻿using ERP_DVJ.Models;
+﻿using ERP_JE.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ERP_DVJ.Controllers
+namespace ERP_JE.Controllers
 {
     public class HomeController : Controller
     {
