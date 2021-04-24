@@ -1,4 +1,4 @@
-using ERP_JE.Data;
+using ERP_DVJ.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ERP_JE
+namespace ERP_DVJ
 {
     public class Startup
     {
