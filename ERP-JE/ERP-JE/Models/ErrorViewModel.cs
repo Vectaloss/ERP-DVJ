@@ -1,6 +1,6 @@
 using System;
 
-namespace ERP_DVJ.Models
+namespace ERP_JE.Models
 {
     public class ErrorViewModel
     {

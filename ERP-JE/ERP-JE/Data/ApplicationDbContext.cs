@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERP_DVJ.Data
+namespace ERP_JE.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
