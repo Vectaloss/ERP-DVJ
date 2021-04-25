@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ERP_JE.Models.Member>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table id="table_id" class="table table-striped table-hover dt-responsive" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>N° Membre</th>
+            <th>Prenom</th>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdMember</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#table_id').DataTable();
+
+            $('#table_id tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+        });
+        function Edit() {
+            var table = $('#table_id').DataTable();
+            window.location.href = 'https://localhost:44368/Commande/Edit/' + table.row('.selected').data()[0];
+        }
+    </script>
+}
