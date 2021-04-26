@@ -26,7 +26,7 @@ namespace ERP_JE.Controllers
         }
 
         // GET: MemberController/Create
-        public ActionResult Create()
+        public ActionResult New()
         {
             return View();
         }
@@ -34,7 +34,7 @@ namespace ERP_JE.Controllers
         // POST: MemberController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult New(IFormCollection collection)
         {
             try
             {

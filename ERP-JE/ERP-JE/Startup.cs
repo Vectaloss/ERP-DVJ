@@ -56,6 +56,8 @@ namespace ERP_JE
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseBrowserLink();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -63,6 +65,7 @@ namespace ERP_JE
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }
