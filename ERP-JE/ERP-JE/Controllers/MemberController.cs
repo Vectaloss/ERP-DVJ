@@ -12,11 +12,13 @@ namespace ERP_JE.Controllers
         // GET: MemberController
         public ActionResult Index()
         {
-            List<Models.Member> list = new List<Models.Member>();
+            Models.DataManagement.DataAcces db = new Models.DataManagement.DataAcces();
+            List<Models.Member> L = db.GetMembers();
+            /*List<Models.Member> list = new List<Models.Member>();
             list.Add(new Models.Member(1,"Arnaud","SCHWARTZ"));
             list.Add(new Models.Member(2, "Anaïs", "ZANZUCCHI"));
-            list.Add(new Models.Member(3, "Timothe", "FOCONE"));
-            return View(list);
+            list.Add(new Models.Member(3, "Timothe", "FOCONE"));*/
+            return View(L);
         }
 
         // GET: MemberController/Details/5
@@ -34,16 +36,19 @@ namespace ERP_JE.Controllers
         // POST: MemberController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult New(IFormCollection collection)
+        public ActionResult New(Models.Member m)
         {
             try
             {
+                Models.DataManagement.DataAcces db = new Models.DataManagement.DataAcces();
+                db.AddMember(m);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
                 return View();
             }
+            
         }
 
         // GET: MemberController/Edit/5

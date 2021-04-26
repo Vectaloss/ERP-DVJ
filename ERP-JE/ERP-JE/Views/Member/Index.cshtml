@@ -12,17 +12,20 @@
                 <th>N° Membre</th>
                 <th>Prenom</th>
                 <th>Nom</th>
+                <th>Email</th>
+                <th>Date de Naissance</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.IdMember</td>
-                    <td>@item.FirstName</td>
-                    <td>@item.LastName</td>
-
-                </tr>
+            <tr>
+                <td>@item.IdMember</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.Birth.Day.ToString("D2")/@item.Birth.Month.ToString("D2")/@item.Birth.Year.ToString("D4")</td>
+            </tr>
             }
         </tbody>
     </table>

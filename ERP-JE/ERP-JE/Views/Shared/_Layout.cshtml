@@ -36,8 +36,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link " href="">
+            <li class="nav-item @if ((string)ViewContext.RouteData.Values["controller"]=="Home") { Write("active"); }">
+            <a class="nav-link " asp-controller="Home" asp-action="index" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <spanclass>Dashboard</spanclass>
                 </a>
@@ -54,8 +54,8 @@
                 </div>
 
                 <!-- Nav Item - Membres Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseTwo"
+                <li class="nav-item @if ((string)ViewContext.RouteData.Values["controller"] == "Member") { Write("active"); } ">
+   <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseTwo"
                        aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-users"></i>
                         <span>Membres</span>

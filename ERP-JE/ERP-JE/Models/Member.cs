@@ -24,26 +24,38 @@ namespace ERP_JE.Models
         
         [Required(ErrorMessage = "Entrez une adresse email.")]
         [Display(Name = "Adresse Email", Prompt = "son.adresse@gmail.com")]
-        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Format d'adresse non valide.")]
         public string Email { get; set; }
-
+        [Required(ErrorMessage = "Entrez l'adresse mail de l'école.")]
+        [Display(Name = "Adresse Email d'Ecole", Prompt = "son.adresse@edu.devinci.fr")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Format d'adresse non valide.")]
         public string SchoolEmail { get; set; }
+        [Required(ErrorMessage = "Entrez un numéro de télphone portable.")]
+        [Display(Name = "Numéro de téléphone", Prompt = "0612345678")]
         public string Phone { get; set; }
+        [Required(ErrorMessage = "Entrez une année de promotion.")]
+        [Display(Name = "Année de promotion", Prompt = "2024")]
         public string Promo { get; set; }
+        [Required(ErrorMessage = "Entrez une école.")]
+        [Display(Name = "Ecole", Prompt = "ESILV")]
         public string School { get; set; }
+        [Required(ErrorMessage = "Entrez une spécialité.")]
+        [Display(Name = "Spécialité", Prompt = "Finance")]
         public string Spe { get; set; }
+        [ScaffoldColumn(false)]
         public string Picture { get; set; }
-        public string Cotisation { get; set; }
+        [ScaffoldColumn(false)]
+        public bool Cotisation { get; set; }
+        [Required(ErrorMessage = "(Entrez une nationalité.\n(Utilisez un - en séparation si multiples) ")]
+        [Display(Name = "Nationalité", Prompt = "Français")]
         public string Nationality { get; set; }
-        public string IdAdhestionBulletin { get; set; }
-        public string IdAdress { get; set; }
-        public string IdUser { get; set; }
+        [ScaffoldColumn(false)]
+        public int IdAdhestionBulletin { get; set; }
+        [ScaffoldColumn(false)]
+        public int IdAdress { get; set; }
+        [ScaffoldColumn(false)]
+        public int IdUser { get; set; }
 
-        public Member(int id, string prenom, string Nom)
-        {
-            IdMember = id;
-            FirstName = prenom;
-            LastName = Nom;
-        }
+        
     }
 }   
