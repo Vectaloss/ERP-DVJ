@@ -98,9 +98,9 @@
                 </div>
 
                 <!-- Nav Item - Clients -->
-                <li class="nav-item">
+                <li class="nav-item @if ((string)ViewContext.RouteData.Values["controller"] == "Prospections") { Write("active"); }">
                     <!-- prosp -->
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link " asp-controller="Prospections" asp-action="CustomerChoice">
                         <i class="fas fa-address-book"></i>
                         <span>Nouvelle prospection</span>
                     </a>
@@ -110,7 +110,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEtudes"
                        aria-expanded="true" aria-controls="collapseEtudes">
                         <i class="fas fa-paperclip"></i>
-                        <span>Mes etude</span>
+                        <span>Mes etudes</span>
                     </a>
                     <div id="collapseEtudes" class="collapse" aria-labelledby="headingEtudes"
                          data-parent="#accordionSidebar">

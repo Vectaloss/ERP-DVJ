@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,8 +14,9 @@ namespace ERP_JE.Models
         Mauvaise, Mitigée, Bonne, Excellente
     }
     
-    public class Prospections
+    public class Prospections //ajouter user id, pour suivre les prospections de chacun
     {
+        [ScaffoldColumn(false)]
         public int IdProspection { get; set; }
 
         public string Needs { get; set; }
@@ -37,6 +39,7 @@ namespace ERP_JE.Models
 
         public string OpportunityOfImprovement { get; set; }
 
+        [ScaffoldColumn(false)]
         public int IdContact { get; set; }
     }
 }
