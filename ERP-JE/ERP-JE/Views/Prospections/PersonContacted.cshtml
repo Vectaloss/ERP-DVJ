@@ -32,7 +32,7 @@
 </div>
 <div class="row">
     <div class="col-4">
-        <a class="btn btn-block white bg-bleu-EMLV" onclick="New()">Choisir</a>
+        <a class="btn btn-block white bg-bleu-EMLV" onclick="Choose()">Choisir</a>
     </div>
     <div class="col-4">
         <a class="btn btn-block white bg-orange-IIM" asp-action="NewContact" asp-route-IdCustomer="@ViewBag.IdCustomer">Nouveau Contact </a>
@@ -74,7 +74,8 @@
             });
 
             function Choose() {
-
+                var table = $('#table_id').DataTable();
+                window.location.href = 'https://localhost:44370/Prospections/NewProspection?IdContact=' + table.row('.selected').data()[0];
             }
     </script>
 }

@@ -8,9 +8,10 @@ namespace ERP_JE.Controllers
 {
     public class ProspectionsController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View();
+            Models.DataManagement.DataAcces db = new Models.DataManagement.DataAcces();
+            return View(db.GetProspections());
         }
         public ActionResult CustomerChoice()
         {
@@ -53,9 +54,31 @@ namespace ERP_JE.Controllers
         [HttpPost]
         public ActionResult NewContact(Models.Contacts C)
         {
+            try
+            {
                 Models.DataManagement.DataAcces db = new Models.DataManagement.DataAcces();
                 db.AddContact(C);
                 return RedirectToAction(nameof(CustomerChoice));
+            }
+            catch
+            {
+                return View();
+            }
+                
         }
+        public ActionResult NewProspection(int IdContact)
+        {
+            ViewBag.IdContact = IdContact;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NewProspection(Models.Prospections P)
+        {
+            
+                Models.DataManagement.DataAcces db = new Models.DataManagement.DataAcces();
+                db.AddProspection(P);
+                return RedirectToAction(nameof(Index));
+        }
+        
     }
 }

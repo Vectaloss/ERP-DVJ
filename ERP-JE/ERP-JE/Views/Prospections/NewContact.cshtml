@@ -8,7 +8,7 @@
 <h1>Nouveau Contact</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <form asp-action="NewContact">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -48,7 +48,7 @@
                 </textarea>
                 <span asp-validation-for="Commentary" class="text-danger"></span>
             </div>
-            <input type="hidden" data-val="true"  id="IdCustomer" name="IdCustomer"  value="@ViewBag.IdCustomer">
+            <input type="hidden" data-val="true" id="IdCustomer" name="IdCustomer" value="@ViewBag.IdCustomer">
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn  bg-bleu-EMLV white" />
@@ -57,3 +57,6 @@
         </form>
     </div>
 </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,91 @@
+﻿@model ERP_JE.Models.Prospections
+
+@{
+    ViewData["Title"] = "NewProspection";
+}
+
+<h1>Nouvelle Prospection</h1>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="NewProspection">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="ContactDate" class="control-label"></label>
+                <input asp-for="ContactDate" class="form-control" />
+                <span asp-validation-for="ContactDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PreparationDate" class="control-label"></label>
+                <input asp-for="PreparationDate" class="form-control" />
+                <span asp-validation-for="PreparationDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConcernedBu" class="control-label"></label>
+                <select asp-for="ConcernedBu" class="form-control" asp-items="Html.GetEnumSelectList<School>()">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="ConcernedBu" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="type" class="control-label"></label>
+                <select asp-for="type" class="form-control" asp-items="Html.GetEnumSelectList<Prospection>()">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="firstApproachQuality" class="control-label"></label>
+                <select asp-for="firstApproachQuality" class="form-control" asp-items="Html.GetEnumSelectList<Quality>()">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="firstApproachQuality" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Needs" class="control-label"></label>
+                <textarea asp-for="Needs" class="form-control" rows="2">
+
+                </textarea>
+                <span asp-validation-for="Needs" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LeadedTo" class="control-label"></label>
+                <input asp-for="LeadedTo" class="form-control" />
+                <span asp-validation-for="LeadedTo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Commentary" class="control-label"></label>
+                <textarea asp-for="Commentary" class="form-control" rows="2">
+
+                </textarea>
+                <span asp-validation-for="Commentary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OpportunityOfImprovement" class="control-label"></label>
+                <textarea asp-for="OpportunityOfImprovement" class="form-control" rows="2">
+
+                </textarea>
+                <span asp-validation-for="OpportunityOfImprovement" class="text-danger"></span>
+
+            </div>
+            <input type="hidden" data-val="true" id="IdContact" name="IdContact" value="@ViewBag.IdContact">
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn bg-bleu-EMLV white" />
+                <a class="btn bg-magenta-ESILV white" asp-action="CustomerChoice">Retour</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

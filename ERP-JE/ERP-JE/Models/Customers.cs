@@ -21,6 +21,7 @@ namespace ERP_JE.Models
         [ScaffoldColumn(false)]
         public int IdAdress { get; set; }
         [Display(Name = "SIREN", Prompt = "123456789")]
+        [Required(ErrorMessage = "Entrez un SIREN.")]
         public int SIREN { get; set; }
         [Display(Name = "Secteur d'activité", Prompt = "Aéronautique")]
         [Required(ErrorMessage = "Entrez un secteur d'activité.")]
