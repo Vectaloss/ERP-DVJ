@@ -14,10 +14,6 @@ namespace ERP_JE.Controllers
         {
             Models.DataManagement.DataAcces db = new Models.DataManagement.DataAcces();
             List<Models.Member> L = db.GetMembers();
-            /*List<Models.Member> list = new List<Models.Member>();
-            list.Add(new Models.Member(1,"Arnaud","SCHWARTZ"));
-            list.Add(new Models.Member(2, "Anaïs", "ZANZUCCHI"));
-            list.Add(new Models.Member(3, "Timothe", "FOCONE"));*/
             return View(L);
         }
 

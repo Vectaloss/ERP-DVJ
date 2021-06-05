@@ -12,7 +12,7 @@ namespace ERP_JE.Models.DataManagement
 {
     public class DataAcces
     {
-        string ConnectionString = "Server=localhost;Database=erp;Uid=root;Pwd=ICEtea@123";
+        string ConnectionString = "Server=localhost;Database=erp;Uid=root;Pwd=root";
 
         #region Members
         public void AddMember(Member m)
