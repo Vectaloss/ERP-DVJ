@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ERP_JE.Models.Contacts>
+
+
+@{
+    ViewData["Title"] = "PersonContacted";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<h1>Personne contactée - @ViewBag.Customer</h1>
+
+<div class="jumbotron ">
+    <table id="table_id" class="table table-striped table-hover dt-responsive" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.IdContact)</th>
+                <th> @Html.DisplayNameFor(model => model.FirstName)</th>
+                <th> @Html.DisplayNameFor(model => model.LastName)</th>
+                <th> @Html.DisplayNameFor(model => model.Job)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IdContact</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Job</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col-4">
+        <a class="btn btn-block white bg-bleu-EMLV" onclick="Choose()">Choisir</a>
+    </div>
+    <div class="col-4">
+        <a class="btn btn-block white bg-orange-IIM" asp-action="NewContact" asp-route-IdCustomer="@ViewBag.IdCustomer">Nouveau Contact </a>
+    </div>
+    <div class="col-4">
+
+        <a class="btn btn-block white bg-magenta-ESILV" asp-action="CustomerChoice">Retour </a>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+    <script>
+            $(document).ready(function () {
+                var table = $('#table_id').DataTable(
+                    {
+                        "columnDefs":
+                            [
+                                {
+                                    "targets": [0],
+                                    "visible": false
+
+                                }
+
+                            ]
+                    }
+                );
+
+                $('#table_id tbody').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        table.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                });
+            });
+
+            function Choose() {
+                var table = $('#table_id').DataTable();
+                window.location.href = 'https://localhost:44370/Prospections/NewProspection?IdContact=' + table.row('.selected').data()[0];
+            }
+    </script>
+}

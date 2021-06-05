@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace ERP_JE.Models
-{
+{   public enum School { ESILV,EMLV,IIM}
     public class Member
     {
         [ScaffoldColumn(false)]
@@ -19,7 +19,7 @@ namespace ERP_JE.Models
         public string LastName { get; set; }
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Entrez une date de naissance.")]
-        [Display(Name = "Date de naissance", Prompt = "12/09/2000")]
+        [Display(Name = "Date de naissance", Prompt = "09-02-2000")]
         public DateTime Birth { get; set; }
         
         [Required(ErrorMessage = "Entrez une adresse email.")]
@@ -38,7 +38,7 @@ namespace ERP_JE.Models
         public string Promo { get; set; }
         [Required(ErrorMessage = "Entrez une école.")]
         [Display(Name = "Ecole", Prompt = "ESILV")]
-        public string School { get; set; }
+        public School School { get; set; }
         [Required(ErrorMessage = "Entrez une spécialité.")]
         [Display(Name = "Spécialité", Prompt = "Finance")]
         public string Spe { get; set; }

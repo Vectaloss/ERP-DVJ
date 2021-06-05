@@ -21,7 +21,7 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
+        
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion colorSideBar" id="accordionSidebar">
 
@@ -29,7 +29,7 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <img class="sidebar-brand-icon" src="https://devincijunior.fr/wp-content/uploads/2020/01/LOGO-e1601155303384.png">
                 </img>
-                <div class="sidebar-brand-text mx-3">JERP <sup>#</sup></div>
+                <div class="sidebar-brand-text mx-3">ERP-DVJ</div>
             </a>
 
             <!-- Divider -->
@@ -98,31 +98,13 @@
                 </div>
 
                 <!-- Nav Item - Clients -->
-                <li class="nav-item">
+                <li class="nav-item @if ((string)ViewContext.RouteData.Values["controller"] == "Prospections" && (string)ViewContext.RouteData.Values["action"] != "Index") { Write("active"); }">
                     <!-- prosp -->
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link " asp-controller="Prospections" asp-action="CustomerChoice">
                         <i class="fas fa-address-book"></i>
                         <span>Nouvelle prospection</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <!-- etudes -->
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEtudes"
-                       aria-expanded="true" aria-controls="collapseEtudes">
-                        <i class="fas fa-paperclip"></i>
-                        <span>Mes etude</span>
-                    </a>
-                    <div id="collapseEtudes" class="collapse" aria-labelledby="headingEtudes"
-                         data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Utilities:</h6>
-                            <a class="collapse-item" href="utilities-color.html">En cours</a>
-                            <a class="collapse-item" href="utilities-border.html">Cloturées</a>
-                            <a class="collapse-item" href="utilities-animation.html">Echéances</a>
-                        </div>
-                    </div>
-                </li>
-
                 <li class="nav-item">
                     <!-- AO -->
                     <a class="nav-link" href="charts.html">
@@ -130,7 +112,23 @@
                         <span>Appel d'offre</span>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <!-- etudes -->
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEtudes"
+                       aria-expanded="true" aria-controls="collapseEtudes">
+                        <i class="fas fa-paperclip"></i>
+                        <span>Mon activité</span>
+                    </a>
+                    <div id="collapseEtudes" class="collapse" aria-labelledby="headingEtudes"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Utilities:</h6>
+                            <a class="collapse-item" asp-controller="Prospections" asp-action="Index" >Suivi de prospection</a>
+                            <a class="collapse-item" href="utilities-border.html">Mes Etudes</a>
+                            <a class="collapse-item" href="utilities-animation.html">Echéances</a>
+                        </div>
+                    </div>
+                </li>
             </div>
 
             <!-- Divider -->
@@ -385,7 +383,7 @@
                 </nav>
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" >
 
                     <div>
                         @RenderBody()

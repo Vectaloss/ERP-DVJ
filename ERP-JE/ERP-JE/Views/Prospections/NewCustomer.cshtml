@@ -1,0 +1,50 @@
+﻿@model ERP_JE.Models.Customers
+
+@{
+    ViewData["Title"] = "NewCustomer";
+}
+
+<h1>Nouveau Client</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="NewCustomer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SIREN" class="control-label"></label>
+                <input asp-for="SIREN" class="form-control" />
+                <span asp-validation-for="SIREN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sector" class="control-label"></label>
+                <input asp-for="Sector" class="form-control" />
+                <span asp-validation-for="Sector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Website" class="control-label"></label>
+                <input asp-for="Website" class="form-control" />
+                <span asp-validation-for="Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <select asp-for="Size" class="form-control" asp-items="Html.GetEnumSelectList<Size>()">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn  bg-bleu-EMLV white" />
+                <a class="btn bg-magenta-ESILV white" asp-action="CustomerChoice">Retour</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
